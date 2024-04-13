@@ -1,0 +1,316 @@
+openapi: "3.0.0"
+info:
+  title: "BikeStores API"
+  description: |-
+    This API allows access to information about products, brands, categories, stocks, and stores from BikeStores.
+  version: "1.0.0"
+servers:
+  - url: "https://dev-lenoir226.users.info.unicaen.fr"
+tags:
+  - name: brands
+    description: Operations related to brands
+  - name: categories
+    description: Operations related to categories
+  - name: products
+    description: Operations related to products
+  - name: stocks
+    description: Operations related to stocks
+  - name: stores
+    description: Operations related to stores
+  - name: employees
+    description: Operations related to employees
+  - name: filters
+    description: Filtering operations
+paths:
+
+  /brands:
+    get:
+      tags:
+        - brands
+      summary: "Get the list of brands"
+      responses:
+        '200':
+          description: "List of brands obtained successfully"
+
+  /brands/{brand_id}:
+    parameters:
+      - in: path
+        name: brand_id
+        required: true
+        description: "Brand ID"
+        schema:
+          type: string
+    get:
+      tags:
+        - brands
+      summary: "Get details of a brand"
+      responses:
+        '200':
+          description: "Brand details obtained successfully"
+
+  /categories:
+    get:
+      tags:
+        - categories
+      summary: "Get the list of categories"
+      responses:
+        '200':
+          description: "List of categories obtained successfully"
+
+  /categories/{category_id}:
+    parameters:
+      - in: path
+        name: category_id
+        required: true
+        description: "Category ID"
+        schema:
+          type: string
+    get:
+      tags:
+        - categories
+      summary: "Get details of a category"
+      responses:
+        '200':
+          description: "Category details obtained successfully"
+
+  /products:
+    get:
+      tags:
+        - products
+      summary: "Get the list of products"
+      responses:
+        '200':
+          description: "List of products obtained successfully"
+
+  /products/{product_id}:
+    parameters:
+      - in: path
+        name: product_id
+        required: true
+        description: "Product ID"
+        schema:
+          type: string
+    get:
+      tags:
+        - products
+      summary: "Get details of a product"
+      responses:
+        '200':
+          description: "Product details obtained successfully"
+
+  /products/b/{brand_id}:
+    parameters:
+      - in: path
+        name: brand_id
+        required: true
+        description: "Brand ID"
+        schema:
+          type: string
+    get:
+      tags:
+        - products
+      summary: "Get products of a brand"
+      responses:
+        '200':
+          description: "Products of the brand obtained successfully"
+
+  /products/c/{category_id}:
+    parameters:
+      - in: path
+        name: category_id
+        required: true
+        description: "Category ID"
+        schema:
+          type: string
+    get:
+      tags:
+        - products
+      summary: "Get products of a category"
+      responses:
+        '200':
+          description: "Products of the category obtained successfully"
+
+  /products/y/{year}:
+    parameters:
+      - in: path
+        name: year
+        required: true
+        description: "Year"
+        schema:
+          type: string
+    get:
+      tags:
+        - products
+      summary: "Get products of a year"
+      responses:
+        '200':
+          description: "Products of the year obtained successfully"
+
+  /products/p/{price}:
+    parameters:
+      - in: path
+        name: price
+        required: true
+        description: "Price"
+        schema:
+          type: string
+    get:
+      tags:
+        - products
+      summary: "Get products of a price"
+      responses:
+        '200':
+          description: "Products of the price obtained successfully"
+
+  /stocks:
+    get:
+      tags:
+        - stocks
+      summary: "Get the list of stocks"
+      responses:
+        '200':
+          description: "List of stocks obtained successfully"
+
+  /stocks/{stock_id}:
+    parameters:
+      - in: path
+        name: stock_id
+        required: true
+        description: "Stock ID"
+        schema:
+          type: string
+    get:
+      tags:
+        - stocks
+      summary: "Get details of a stock"
+      responses:
+        '200':
+          description: "Stock details obtained successfully"
+
+  /stocks/s/{store_id}:
+    parameters:
+      - in: path
+        name: store_id
+        required: true
+        description: "Store ID"
+        schema:
+          type: string
+    get:
+      tags:
+        - stocks
+      summary: "Get stocks of a store"
+      responses:
+        '200':
+          description: "Stocks of the store obtained successfully"
+
+  /stocks/p/{product_id}:
+    parameters:
+      - in: path
+        name: product_id
+        required: true
+        description: "Product ID"
+        schema:
+          type: string
+    get:
+      tags:
+        - stocks
+      summary: "Get stocks of a product"
+      responses:
+        '200':
+          description: "Stocks of the product obtained successfully"
+
+  /stores:
+    get:
+      tags:
+        - stores
+      summary: "Get the list of stores"
+      responses:
+        '200':
+          description: "List of stores obtained successfully"
+
+  /stores/{store_id}:
+    parameters:
+      - in: path
+        name: store_id
+        required: true
+        description: "Store ID"
+        schema:
+          type: string
+    get:
+      tags:
+        - stores
+      summary: "Get details of a store"
+      responses:
+        '200':
+          description: "Store details obtained successfully"
+
+  /employees:
+    get:
+      tags:
+        - employees
+      summary: "Get the list of employees"
+      responses:
+        '200':
+          description: "List of employees obtained successfully"
+
+  /employees/{employee_id}:
+    parameters:
+      - in: path
+        name: employee_id
+        required: true
+        description: "Employee ID"
+        schema:
+          type: string
+    get:
+      tags:
+        - employees
+      summary: "Get details of an employee"
+      responses:
+        '200':
+          description: "Employee details obtained successfully"
+
+  /employees/s/{store_id}:
+    parameters:
+      - in: path
+        name: store_id
+        required: true
+        description: "Store ID"
+        schema:
+          type: string
+    get:
+      tags:
+        - employees
+      summary: "Get employees of a store"
+      responses:
+        '200':
+          description: "Employees of the store obtained successfully"
+
+  /filter/:
+    get:
+      tags:
+        - filters
+      summary: "Filter products"
+      parameters:
+        - in: query
+          name: brand
+          description: "ID(s) of brand to filter (comma-separated)"
+          schema:
+            type: string
+        - in: query
+          name: category
+          description: "ID(s) of category to filter (comma-separated)"
+          schema:
+            type: string
+        - in: query
+          name: year
+          description: "Year(s) to filter (comma-separated)"
+          schema:
+            type: string
+        - in: query
+          name: price
+          description: "Price(s) to filter (comma-separated)"
+          schema:
+            type: string
+      responses:
+        '200':
+          description: "Filtered products obtained successfully"

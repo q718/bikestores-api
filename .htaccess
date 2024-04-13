@@ -1,0 +1,24 @@
+Allow From All
+Satisfy Any
+Options FollowSymLinks
+RewriteEngine On
+RewriteRule ^brands/?$ controller/brands.php
+RewriteRule ^brands/([^/]+)/?$ controller/brands.php?action=getBrand&id=$1
+RewriteRule ^categories/?$ controller/categories.php
+RewriteRule ^categories/([^/]+)/?$ controller/categories.php?action=getCategory&id=$1
+RewriteRule ^products/?$ controller/products.php
+RewriteRule ^products/([^/]+)/?$ controller/products.php?action=getProduct&id=$1
+RewriteRule ^products/b/([^/]+)/?$ controller/products.php?action=getBrandProducts&id=$1
+RewriteRule ^products/c/([^/]+)/?$ controller/products.php?action=getCategoryProducts&id=$1
+RewriteRule ^products/y/([^/]+)/?$ controller/products.php?action=getYearProducts&id=$1
+RewriteRule ^products/p/([^/]+)/?$ controller/products.php?action=getPriceProducts&id=$1
+RewriteRule ^stocks/?$ controller/stocks.php
+RewriteRule ^stocks/([^/]+)/?$ controller/stocks.php?action=getStock&id=$1
+RewriteRule ^stocks/s/([^/]+)/?$ controller/stocks.php?action=getStoreStocks&id=$1
+RewriteRule ^stocks/p/([^/]+)/?$ controller/stocks.php?action=getProductStocks&id=$1
+RewriteRule ^stores/?$ controller/stores.php
+RewriteRule ^stores/([^/]+)/?$ controller/stores.php?action=getStore&id=$1
+RewriteRule ^employees/?$ controller/employees.php
+RewriteRule ^employees/([^/]+)/?$ controller/employees.php?action=getEmployee&id=$1
+RewriteRule ^employees/s/([^/]+)/?$ controller/employees.php?action=getStoreEmployees&id=$1
+RewriteRule ^filter/?$ controller/products.php?action=filter [QSA,L]
