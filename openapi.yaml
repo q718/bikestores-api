@@ -4,8 +4,11 @@ info:
   description: |-
     This API allows access to information about products, brands, categories, stocks, and stores from BikeStores.
   version: "1.0.0"
+externalDocs:
+  description: Source code
+  url: https://github.com/q718/bikestores-api
 servers:
-  - url: "https://dev-lenoir226.users.info.unicaen.fr"
+  - url: "https://dev-lenoir226.users.info.unicaen.fr/bikestores"
 tags:
   - name: brands
     description: Operations related to brands

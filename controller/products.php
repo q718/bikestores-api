@@ -10,6 +10,17 @@ require_once("../model/Categories.class.php");
 
 $request_method = $_SERVER["REQUEST_METHOD"];
 
+// Vérification de la clé d'accès pour les opérations autres que GET
+if ($request_method !== "GET") {
+    $api_key = isset($_GET['api_key']) ? $_GET['api_key'] : null;
+
+    if ($api_key !== "e8f1997c763") {
+        echo json_encode(array('error' => 'Invalid API key'));
+        http_response_code(403);
+        exit();
+    }
+}
+
 switch ($request_method) {
     case "GET":
         if (isset($_GET['action'])) {
@@ -60,7 +71,6 @@ switch ($request_method) {
                     }
                     break;
 
-
                 case "getYearProducts":
                     if (isset($_GET['id'])) {
                         $year_id = $_GET['id'];
@@ -100,6 +110,18 @@ switch ($request_method) {
             $products = Products::getAll();
             echo json_encode($products, JSON_UNESCAPED_UNICODE);
         }
+        break;
+
+    case "POST":
+        echo json_encode(array('authorized' => 'POST'));
+        break;
+
+    case "PUT":
+        echo json_encode(array('authorized' => 'PUT'));
+        break;
+
+    case "DELETE":
+        echo json_encode(array('authorized' => 'DELETE'));
         break;
 
     default:
